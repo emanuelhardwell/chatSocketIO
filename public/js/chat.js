@@ -21,8 +21,14 @@ message.addEventListener("keypress", () => {
 
 socket.on("messageServer", (data) => {
   /* console.log(data); */
-  actions.innerHTML="";
-  output.innerHTML += `<p class="alert alert-primary"><strong>${data.username}</strong> ${data.message}</p>`;
+  actions.innerHTML = "";
+  /*  output.innerHTML += `<p class="alert alert-primary"><strong>${data.username}</strong> ${data.message}</p>`; */
+  output.innerHTML += `<div class="alert alert-primary alert-dismissible fade show">
+  <strong>${data.username}</strong> ${data.message}
+  <button type="button" class="close" data-dismiss="alert">
+    <span>&times;</span>
+  </button>
+</div>`;
 });
 
 socket.on("typingServer", (data) => {
