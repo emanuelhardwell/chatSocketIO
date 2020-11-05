@@ -22,4 +22,13 @@ const io = socketIo(server);
 
 io.on("connection", (socket) => {
   console.log("nueva conexion", socket.id);
+
+  socket.on("messageBrowser", (data) => {
+    /* console.log(data); */
+    io.sockets.emit("messageServer", data);
+  });
+
+  socket.on("typingBrowser", (data) => {
+    socket.broadcast.emit("typingServer", data);
+  });
 });
