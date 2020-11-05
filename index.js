@@ -6,7 +6,6 @@ const socketIo = require("socket.io");
 
 const app = express();
 
-
 //settings
 app.set("port", process.env.PORT || 3000);
 
@@ -20,3 +19,7 @@ const server = app.listen(app.get("port"), () => {
 
 //web sockets
 const io = socketIo(server);
+
+io.on("connection", (socket) => {
+  console.log("nueva conexion", socket.id);
+});
