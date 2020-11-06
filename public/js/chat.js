@@ -22,6 +22,7 @@ message.addEventListener("keypress", () => {
 socket.on("messageServer", (data) => {
   /* console.log(data); */
   actions.innerHTML = "";
+  message.value="";
   /*  output.innerHTML += `<p class="alert alert-primary"><strong>${data.username}</strong> ${data.message}</p>`; */
   output.innerHTML += `<div class="alert alert-primary alert-dismissible fade show">
   <strong>${data.username}</strong> ${data.message}
